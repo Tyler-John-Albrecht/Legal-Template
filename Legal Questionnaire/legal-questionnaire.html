@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Intake Form | Personal Injury Law | Brechtland</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue:    #1A73E8;
+            --blue-dk: #1557B0;
+            --dark:    #0F172A;
+            --mid:     #1E293B;
+            --white:   #FFFFFF;
+            --offwhite:#F8FAFC;
+            --border:  #E2E8F0;
+            --text:    #1E293B;
+            --sub:     #64748B;
+            --red:     #DC2626;
+            --green:   #16A34A;
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--offwhite);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* TOP BAR */
+        .topbar {
+            background: var(--dark);
+            color: rgba(255,255,255,.55);
+            padding: 10px 40px;
+            font-size: 12px;
+            letter-spacing: .5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .topbar strong { color: var(--white); font-weight: 600; }
+
+        /* HEADER */
+        header {
+            background: var(--dark);
+            padding: 22px 40px 24px;
+            border-bottom: 3px solid var(--blue);
+        }
+        .header-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+        .logo span { color: var(--blue); }
+        .logo-tag {
+            font-family: 'Inter', sans-serif;
+            color: rgba(255,255,255,.45);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        .header-badge {
+            background: rgba(26,115,232,.15);
+            border: 1px solid rgba(26,115,232,.4);
+            color: #60A5FA;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+        }
+
+        /* INTRO CARD */
+        .intro {
+            max-width: 860px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+        .intro-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--blue);
+            padding: 28px 32px;
+            margin-bottom: 32px;
+        }
+        .intro-card h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        .intro-card p {
+            font-size: 14px;
+            line-height: 1.75;
+            color: var(--sub);
+            font-weight: 300;
+        }
+        .intro-card p + p { margin-top: 10px; }
+        .intro-steps {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .intro-step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--sub);
+        }
+        .intro-step-num {
+            width: 24px;
+            height: 24px;
+            background: var(--blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* FORM WRAPPER */
+        .form-wrap {
+            max-width: 860px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        /* SECTION CARD */
+        .section-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .section-header {
+            background: var(--dark);
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .section-num {
+            width: 32px;
+            height: 32px;
+            background: var(--blue);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .section-title-text {
+            color: var(--white);
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .section-subtitle {
+            color: rgba(255,255,255,.45);
+            font-size: 12px;
+            font-weight: 300;
+            margin-top: 1px;
+        }
+        .section-body { padding: 28px; }
+
+        /* FIELD */
+        .field-group { margin-bottom: 22px; }
+        .field-group:last-child { margin-bottom: 0; }
+        .field-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 7px;
+        }
+        .field-label .req { color: var(--red); margin-left: 2px; }
+        .field-label .opt {
+            color: var(--sub);
+            font-weight: 400;
+            font-size: 11px;
+            margin-left: 6px;
+        }
+        .field-hint {
+            font-size: 12px;
+            color: var(--sub);
+            font-weight: 300;
+            margin-bottom: 7px;
+            line-height: 1.55;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            background: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text);
+            padding: 11px 14px;
+            outline: none;
+            transition: border-color .2s;
+            -webkit-appearance: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(26,115,232,.1);
+        }
+        textarea { resize: vertical; line-height: 1.65; }
+        select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
+
+        /* FIELD ROW (2-col) */
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .field-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+        /* CHECKBOX GRID */
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13.5px;
+            font-weight: 400;
+            color: var(--text);
+            cursor: pointer;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            transition: all .15s;
+        }
+        .checkbox-label:hover { border-color: var(--blue); background: rgba(26,115,232,.03); }
+        .checkbox-label input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--blue);
+            cursor: pointer;
+            flex-shrink: 0;
+            padding: 0;
+            border: none;
+        }
+
+        /* DIVIDER */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+
+        /* ATTORNEY BLOCK */
+        .attorney-block {
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .attorney-block:last-child { margin-bottom: 0; }
+        .attorney-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 16px;
+        }
+
+        /* RESULT BLOCK */
+        .result-block {
+            background: var(--offwhite);
+            border: 1px solid var(--border);
+            padding: 18px;
+            margin-bottom: 12px;
+        }
+        .result-block:last-child { margin-bottom: 0; }
+        .result-num {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--sub);
+            margin-bottom: 12px;
+        }
+
+        /* PHOTO INSTRUCTIONS */
+        .photo-card {
+            background: rgba(26,115,232,.04);
+            border: 1px solid rgba(26,115,232,.2);
+            padding: 20px 24px;
+        }
+        .photo-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .photo-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .photo-list li {
+            font-size: 13px;
+            color: var(--sub);
+            display: flex;
+            gap: 8px;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        .photo-list li::before { content: '→'; color: var(--blue); font-weight: 600; flex-shrink: 0; }
+
+        /* SUBMIT */
+        .submit-section {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 32px 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .submit-section p {
+            font-size: 14px;
+            color: var(--sub);
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 1.65;
+        }
+        .submit-btn {
+            background: var(--blue);
+            color: var(--white);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 18px 48px;
+            cursor: pointer;
+            letter-spacing: .3px;
+            transition: background .2s, transform .2s;
+            width: 100%;
+            max-width: 400px;
+        }
+        .submit-btn:hover { background: var(--blue-dk); transform: translateY(-1px); }
+        .submit-note {
+            font-size: 12px;
+            color: var(--sub);
+            margin-top: 14px;
+            font-weight: 300;
+        }
+
+        /* SUCCESS STATE */
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 60px 40px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        .success-icon { font-size: 48px; margin-bottom: 20px; }
+        .success-state h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--dark); margin-bottom: 12px; }
+        .success-state p { font-size: 15px; color: var(--sub); line-height: 1.75; max-width: 480px; margin: 0 auto; font-weight: 300; }
+        .success-state p + p { margin-top: 10px; }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,.4);
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 300;
+        }
+        footer a { color: rgba(255,255,255,.55); text-decoration: underline; }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .field-row, .field-row-3 { grid-template-columns: 1fr; }
+            .checkbox-grid { grid-template-columns: 1fr 1fr; }
+            .header-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+            header { padding: 20px 20px; }
+            .topbar { padding: 10px 20px; }
+            .section-body { padding: 20px; }
+            .submit-section { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <strong>Brechtland LLC</strong> &nbsp;&middot;&nbsp; Confidential Client Intake &nbsp;&middot;&nbsp; brechtland.com
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="header-inner">
+        <div>
+            <div class="logo">Brech<span>t</span>land</div>
+            <div class="logo-tag">Website Design</div>
+        </div>
+        <div class="header-badge">Personal Injury Law &mdash; Website Intake</div>
+    </div>
+</header>
+
+<!-- INTRO -->
+<div class="intro">
+    <div class="intro-card">
+        <h1>Your New Website Starts Here</h1>
+        <p>Fill out this form as completely as you can. Every answer maps directly to a section of your finished website. The more specific your answers, the more accurate your site will be on delivery.</p>
+        <p>Anything marked <strong style="color:var(--red)">*</strong> is required. Everything else is optional but recommended. When in doubt, fill it in &mdash; I can refine the copy, but I can&rsquo;t invent your firm&rsquo;s real information.</p>
+        <div class="intro-steps">
+            <div class="intro-step"><div class="intro-step-num">1</div> Fill out this form</div>
+            <div class="intro-step"><div class="intro-step-num">2</div> Send photos to <a href="mailto:tyler@brechtland.com" style="color:var(--blue)">tyler@brechtland.com</a></div>
+            <div class="intro-step"><div class="intro-step-num">3</div> Receive your site within 48 hours</div>
+        </div>
+    </div>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap">
+    <form id="intakeForm" action="https://formspree.io/f/meelwrne" method="POST">
+        <input type="hidden" name="_subject" value="[Brechtland] New PI Law Firm Website Intake">
+        <input type="hidden" name="_template" value="table">
+
+        <!-- ============================
+             SECTION 1: FIRM BASICS
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">1</div>
+                <div>
+                    <div class="section-title-text">Firm Information</div>
+                    <div class="section-subtitle">Name, contact info, and location used throughout the site</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="field-group">
+                    <label class="field-label" for="firm_name">Firm / Business Name <span class="req">*</span></label>
+                    <div class="field-hint">Exactly as it should appear on your website. Example: "Harrison &amp; Associates" or "Smith Law Group"</div>
+                    <input type="text" id="firm_name" name="firm_name" placeholder="e.g. Harrison & Associates" required>
+                </div>
+                <div class="field-row">
+                    <div class="field-group">
+                        <label class="field-label" for="phone_primary">Primary Phone Number <span class="req">*</span></label>
+                        <input type="tel" id="phone_primary" name="phone_primary" placeholder="(555) 555-0123" required>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="phone_after_hours">After-Hours / Emergency Line <span class="opt">(optional)</span></label>
+                        <input type="tel" id="phone_after_hours" name="phone_after_hours" placeholder="(555) 555-0199">
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-group">
+                        <label class="field-label" for="email">Firm Email <span class="req">*</span></label>
+                        <input type="email" id="email" name="firm_email" placeholder="info@yourfirm.com" required>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="existing_website">Existing Website <span class="opt">(optional)</span></label>
+                        <input type="url" id="existing_website" name="existing_website" placeholder="https://yourfirm.com">
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="address_street">Street Address <span class="req">*</span></label>
+                    <input type="text" id="address_street" name="address_street" placeholder="123 Main Street, Suite 400" required>
+                </div>
+                <div class="field-row-3">
+                    <div class="field-group">
+                        <label class="field-label" for="address_city">City <span class="req">*</span></label>
+                        <input type="text" id="address_city" name="address_city" placeholder="Tampa" required>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="address_state">State <span class="req">*</span></label>
+                        <input type="text" id="address_state" name="address_state" placeholder="FL" required>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="address_zip">ZIP Code <span class="req">*</span></label>
+                        <input type="text" id="address_zip" name="address_zip" placeholder="33601" required>
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-group">
+                        <label class="field-label" for="founded_year">Year Practice Founded <span class="req">*</span></label>
+                        <div class="field-hint">Used in "In practice since [year]" messaging</div>
+                        <input type="number" id="founded_year" name="founded_year" placeholder="1999" min="1900" max="2025" required>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="state_licensed">State(s) Licensed to Practice <span class="req">*</span></label>
+                        <input type="text" id="state_licensed" name="state_licensed" placeholder="Florida, Georgia">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================
+             SECTION 2: YOUR NUMBERS
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">2</div>
+                <div>
+                    <div class="section-title-text">Your Numbers (Stats Bar)</div>
+                    <div class="section-subtitle">The 4 credibility stats that appear prominently below the hero</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="field-hint" style="margin-bottom:20px; padding:12px 14px; background:rgba(26,115,232,.06); border-left:3px solid var(--blue); font-size:13px; line-height:1.65; color:var(--sub)">
+                    &#9888;&#65039; <strong style="color:var(--dark)">These stats will appear verbatim on your site.</strong> Use only real, defensible numbers. If you don&rsquo;t have a stat, leave it blank and I&rsquo;ll suggest an alternative for that slot.
+                </div>
+                <div class="field-row">
+                    <div class="field-group">
+                        <label class="field-label" for="years_experience">Years of Experience <span class="req">*</span></label>
+                        <div class="field-hint">Example: "25+" or "30+"</div>
+                        <input type="text" id="years_experience" name="years_experience" placeholder="25+">
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="total_recovered">Total Recovered for Clients <span class="req">*</span></label>
+                        <div class="field-hint">Example: "$50M+" or "$120M+"</div>
+                        <input type="text" id="total_recovered" name="total_recovered" placeholder="$50M+">
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-group">
+                        <label class="field-label" for="cases_handled">Cases Won / Handled <span class="req">*</span></label>
+                        <div class="field-hint">Example: "2,400+" or "1,000+"</div>
+                        <input type="text" id="cases_handled" name="cases_handled" placeholder="2,400+">
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="satisfaction_rate">Client Satisfaction Rate <span class="opt">(optional)</span></label>
+                        <div class="field-hint">Example: "98%" — leave blank if you don&rsquo;t have this</div>
+                        <input type="text" id="satisfaction_rate" name="satisfaction_rate" placeholder="98%">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================
+             SECTION 3: PRACTICE AREAS
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">3</div>
+                <div>
+                    <div class="section-title-text">Practice Areas</div>
+                    <div class="section-subtitle">Select your top 3 — these get photo cards on the homepage</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="field-group">
+                    <label class="field-label">Select Your Top 3 Practice Areas <span class="req">*</span></label>
+                    <div class="field-hint">Pick the 3 you want featured on the homepage with photos. Additional areas can be listed in the footer.</div>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label"><input type="checkbox" name="practice_areas" value="Car & Truck Accidents"> Car &amp; Truck Accidents</label>
+                        <label class="checkbox-label"><input type="checkbox" name="practice_areas" value="Workplace Injuries"> Workplace Injuries</label>
+                        <label class="checkbox-label"><input type="checkbox" name="practice_areas" value="Slip & Fall"> Slip &amp; Fall</label>
+                        <label class="checkbox-label"><input type="checkbox" name="practice_areas" value="Wrongful Death"> Wrongful Death</label>
+                        <label class="checkbox-label"><input type="checkbox" name="practice_areas" value="Motorcycle Accidents"> Motorcycle Accidents</label>
+                        <label class="checkbox-label"><input type="checkbox" name="practice_areas" value="Medical Malpractice"> Medical Malpractice</label>
+                        <label class="checkbox-label"><input type="checkbox" name="practice_areas" value="Premises Liability"> Premises Liability</label>
+                        <label class="checkbox-label"><input type="checkbox" name="practice_areas" value="Product Liability"> Product Liability</label>
+                        <label class="checkbox-label"><input type="checkbox" name="practice_areas" value="Pedestrian Accidents"> Pedestrian Accidents</label>
+                    </div>
+                </div>
+                <div class="field-group" style="margin-top:8px">
+                    <label class="field-label" for="practice_other">Other Practice Area(s) <span class="opt">(optional)</span></label>
+                    <input type="text" id="practice_other" name="practice_other" placeholder="e.g. Nursing Home Abuse, Dog Bites">
+                </div>
+                <hr class="divider">
+                <div class="field-hint" style="margin-bottom:16px">
+                    Optional: add a 1&ndash;2 sentence description for each of your top 3 areas. If blank, I&rsquo;ll write them based on your selections.
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="area1_desc">Practice Area 1 Description <span class="opt">(optional)</span></label>
+                    <textarea id="area1_desc" name="area1_desc" rows="2" placeholder="What happens in these cases, and what makes your firm the right choice for them?"></textarea>
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="area2_desc">Practice Area 2 Description <span class="opt">(optional)</span></label>
+                    <textarea id="area2_desc" name="area2_desc" rows="2" placeholder="What happens in these cases, and what makes your firm the right choice for them?"></textarea>
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="area3_desc">Practice Area 3 Description <span class="opt">(optional)</span></label>
+                    <textarea id="area3_desc" name="area3_desc" rows="2" placeholder="What happens in these cases, and what makes your firm the right choice for them?"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================
+             SECTION 4: ATTORNEY PROFILES
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">4</div>
+                <div>
+                    <div class="section-title-text">Attorney Profiles</div>
+                    <div class="section-subtitle">Up to 3 attorneys — each gets a photo card and bio on the site</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <!-- ATTORNEY 1 -->
+                <div class="attorney-block">
+                    <div class="attorney-label">&#9733; Attorney 1 &mdash; Lead / Founding Attorney</div>
+                    <div class="field-row">
+                        <div class="field-group">
+                            <label class="field-label" for="a1_name">Full Name <span class="req">*</span></label>
+                            <input type="text" id="a1_name" name="attorney1_name" placeholder="James Harrison" required>
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="a1_title">Title / Role <span class="req">*</span></label>
+                            <input type="text" id="a1_title" name="attorney1_title" placeholder="Founding Partner" required>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="a1_years">Years of Experience <span class="req">*</span></label>
+                        <input type="text" id="a1_years" name="attorney1_years" placeholder="25">
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="a1_bio">Bio <span class="req">*</span></label>
+                        <div class="field-hint">2&ndash;3 sentences. Focus on experience, results, and what makes them fight differently for clients.</div>
+                        <textarea id="a1_bio" name="attorney1_bio" rows="4" placeholder="25+ years in personal injury litigation. John has taken on the largest insurers in [State] and won. He personally oversees every high-value case from intake to verdict." required></textarea>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="a1_photo">Photo Filename <span class="opt">(optional)</span></label>
+                        <div class="field-hint">What will you name this attorney&rsquo;s photo file? Example: "attorney-lead.jpg" — send photos to tyler@brechtland.com</div>
+                        <input type="text" id="a1_photo" name="attorney1_photo" placeholder="attorney-john-smith.jpg">
+                    </div>
+                </div>
+
+                <!-- ATTORNEY 2 -->
+                <div class="attorney-block">
+                    <div class="attorney-label">Attorney 2 <span style="color:var(--sub); font-weight:400; text-transform:none; letter-spacing:0">&mdash; optional</span></div>
+                    <div class="field-row">
+                        <div class="field-group">
+                            <label class="field-label" for="a2_name">Full Name</label>
+                            <input type="text" id="a2_name" name="attorney2_name" placeholder="Maria Reyes">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="a2_title">Title / Role</label>
+                            <input type="text" id="a2_title" name="attorney2_title" placeholder="Senior Associate">
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="a2_bio">Bio</label>
+                        <textarea id="a2_bio" name="attorney2_bio" rows="3" placeholder="Bio for Attorney 2..."></textarea>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="a2_photo">Photo Filename</label>
+                        <input type="text" id="a2_photo" name="attorney2_photo" placeholder="attorney-maria-reyes.jpg">
+                    </div>
+                </div>
+
+                <!-- ATTORNEY 3 -->
+                <div class="attorney-block">
+                    <div class="attorney-label">Attorney 3 <span style="color:var(--sub); font-weight:400; text-transform:none; letter-spacing:0">&mdash; optional</span></div>
+                    <div class="field-row">
+                        <div class="field-group">
+                            <label class="field-label" for="a3_name">Full Name</label>
+                            <input type="text" id="a3_name" name="attorney3_name" placeholder="Marcus Coleman">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="a3_title">Title / Role</label>
+                            <input type="text" id="a3_title" name="attorney3_title" placeholder="Associate Attorney">
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="a3_bio">Bio</label>
+                        <textarea id="a3_bio" name="attorney3_bio" rows="3" placeholder="Bio for Attorney 3..."></textarea>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="a3_photo">Photo Filename</label>
+                        <input type="text" id="a3_photo" name="attorney3_photo" placeholder="attorney-marcus-coleman.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================
+             SECTION 5: WHY CHOOSE YOU
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">5</div>
+                <div>
+                    <div class="section-title-text">Why Choose Your Firm</div>
+                    <div class="section-subtitle">The 4 reasons a client should pick you over any other attorney</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="field-hint" style="margin-bottom:20px; font-size:13px; color:var(--sub)">
+                    What makes your firm different? Think about: your fee structure, how you communicate, your trial experience, speed of response, specializations, or anything unique to how you operate. Leave blank and I&rsquo;ll draft defaults based on standard PI firm differentiators.
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="diff1">Differentiator #1</label>
+                    <input type="text" id="diff1" name="differentiator1" placeholder="e.g. We don't settle for the first offer — ever">
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="diff2">Differentiator #2</label>
+                    <input type="text" id="diff2" name="differentiator2" placeholder="e.g. Clients have a direct line to their attorney — no paralegals, no runaround">
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="diff3">Differentiator #3</label>
+                    <input type="text" id="diff3" name="differentiator3" placeholder="e.g. We prepare every case for trial — insurers know it">
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="diff4">Differentiator #4</label>
+                    <input type="text" id="diff4" name="differentiator4" placeholder="e.g. Available 24/7 — we pick up on nights and weekends">
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="office_quote">Your Office / Philosophy Quote <span class="opt">(optional)</span></label>
+                    <div class="field-hint">A quote from the founding attorney displayed over your office interior photo. Keep it under 15 words.</div>
+                    <input type="text" id="office_quote" name="office_quote" placeholder="e.g. Every client deserves to feel like they're our only client.">
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================
+             SECTION 6: CASE RESULTS
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">6</div>
+                <div>
+                    <div class="section-title-text">Case Results</div>
+                    <div class="section-subtitle">Real settlements or verdicts — no made-up numbers</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="field-hint" style="margin-bottom:20px; padding:12px 14px; background:rgba(220,38,38,.05); border-left:3px solid var(--red); font-size:13px; line-height:1.65; color:var(--sub)">
+                    &#9888;&#65039; <strong style="color:var(--dark)">Actual results only.</strong> These will appear verbatim on your live website. Any result that cannot be verified must be removed before launch.
+                </div>
+
+                <div class="result-block">
+                    <div class="result-num">Result #1 &mdash; Lead Result (largest / most impressive)</div>
+                    <div class="field-row-3">
+                        <div class="field-group">
+                            <label class="field-label" for="r1_amount">Amount <span class="req">*</span></label>
+                            <input type="text" id="r1_amount" name="result1_amount" placeholder="$1,850,000">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r1_type">Case Type <span class="req">*</span></label>
+                            <input type="text" id="r1_type" name="result1_type" placeholder="Auto Accident">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r1_note">Short Note</label>
+                            <input type="text" id="r1_note" name="result1_note" placeholder="Spinal injury · Hillsborough County">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-block">
+                    <div class="result-num">Result #2</div>
+                    <div class="field-row-3">
+                        <div class="field-group">
+                            <label class="field-label" for="r2_amount">Amount</label>
+                            <input type="text" id="r2_amount" name="result2_amount" placeholder="$975,000">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r2_type">Case Type</label>
+                            <input type="text" id="r2_type" name="result2_type" placeholder="Workplace Injury">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r2_note">Short Note</label>
+                            <input type="text" id="r2_note" name="result2_note" placeholder="Construction fall · Pinellas County">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-block">
+                    <div class="result-num">Result #3</div>
+                    <div class="field-row-3">
+                        <div class="field-group">
+                            <label class="field-label" for="r3_amount">Amount</label>
+                            <input type="text" id="r3_amount" name="result3_amount" placeholder="$650,000">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r3_type">Case Type</label>
+                            <input type="text" id="r3_type" name="result3_type" placeholder="Slip & Fall">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r3_note">Short Note</label>
+                            <input type="text" id="r3_note" name="result3_note" placeholder="Commercial premises · Pasco County">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-block">
+                    <div class="result-num">Result #4 <span style="color:var(--sub);font-weight:300">&mdash; optional</span></div>
+                    <div class="field-row-3">
+                        <div class="field-group">
+                            <label class="field-label" for="r4_amount">Amount</label>
+                            <input type="text" id="r4_amount" name="result4_amount" placeholder="$450,000">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r4_type">Case Type</label>
+                            <input type="text" id="r4_type" name="result4_type" placeholder="Motorcycle Accident">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r4_note">Short Note</label>
+                            <input type="text" id="r4_note" name="result4_note" placeholder="TBI · Orange County">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-block">
+                    <div class="result-num">Result #5 <span style="color:var(--sub);font-weight:300">&mdash; optional</span></div>
+                    <div class="field-row-3">
+                        <div class="field-group">
+                            <label class="field-label" for="r5_amount">Amount</label>
+                            <input type="text" id="r5_amount" name="result5_amount">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r5_type">Case Type</label>
+                            <input type="text" id="r5_type" name="result5_type">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="r5_note">Short Note</label>
+                            <input type="text" id="r5_note" name="result5_note">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================
+             SECTION 7: TESTIMONIALS
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">7</div>
+                <div>
+                    <div class="section-title-text">Client Testimonials</div>
+                    <div class="section-subtitle">Real reviews from real clients — up to 3</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="field-hint" style="margin-bottom:20px; font-size:13px; color:var(--sub)">
+                    Use real reviews from Google, Avvo, or verbal client feedback. First name + last initial only is fine (e.g. &ldquo;Robert T.&rdquo;). Leave blank if you don&rsquo;t have them yet &mdash; placeholders will stay until you&rsquo;re ready to swap.
+                </div>
+
+                <div class="attorney-block">
+                    <div class="attorney-label">Testimonial #1</div>
+                    <div class="field-group">
+                        <label class="field-label" for="t1_review">Review Text <span class="req">*</span></label>
+                        <div class="field-hint">Paste the exact review. Ideally mentions a specific result or dollar amount &mdash; these perform best.</div>
+                        <textarea id="t1_review" name="testimonial1_review" rows="3" placeholder="After my accident, the insurance company offered me $12,000. [Attorney name] recovered over $400,000 for me. I didn't pay anything upfront..." required></textarea>
+                    </div>
+                    <div class="field-row-3">
+                        <div class="field-group">
+                            <label class="field-label" for="t1_name">Client Name <span class="req">*</span></label>
+                            <input type="text" id="t1_name" name="testimonial1_name" placeholder="Robert T." required>
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="t1_case">Case Type</label>
+                            <input type="text" id="t1_case" name="testimonial1_case" placeholder="Auto Accident">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="t1_city">City, State</label>
+                            <input type="text" id="t1_city" name="testimonial1_city" placeholder="Tampa, FL">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attorney-block">
+                    <div class="attorney-label">Testimonial #2 <span style="color:var(--sub);font-weight:400;text-transform:none;letter-spacing:0">&mdash; optional</span></div>
+                    <div class="field-group">
+                        <label class="field-label" for="t2_review">Review Text</label>
+                        <textarea id="t2_review" name="testimonial2_review" rows="3" placeholder="Review text..."></textarea>
+                    </div>
+                    <div class="field-row-3">
+                        <div class="field-group">
+                            <label class="field-label" for="t2_name">Client Name</label>
+                            <input type="text" id="t2_name" name="testimonial2_name" placeholder="David M.">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="t2_case">Case Type</label>
+                            <input type="text" id="t2_case" name="testimonial2_case" placeholder="Workplace Injury">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="t2_city">City, State</label>
+                            <input type="text" id="t2_city" name="testimonial2_city" placeholder="Clearwater, FL">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attorney-block">
+                    <div class="attorney-label">Testimonial #3 <span style="color:var(--sub);font-weight:400;text-transform:none;letter-spacing:0">&mdash; optional</span></div>
+                    <div class="field-group">
+                        <label class="field-label" for="t3_review">Review Text</label>
+                        <textarea id="t3_review" name="testimonial3_review" rows="3" placeholder="Review text..."></textarea>
+                    </div>
+                    <div class="field-row-3">
+                        <div class="field-group">
+                            <label class="field-label" for="t3_name">Client Name</label>
+                            <input type="text" id="t3_name" name="testimonial3_name" placeholder="Sandra L.">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="t3_case">Case Type</label>
+                            <input type="text" id="t3_case" name="testimonial3_case" placeholder="Slip & Fall">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="t3_city">City, State</label>
+                            <input type="text" id="t3_city" name="testimonial3_city" placeholder="New Port Richey, FL">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================
+             SECTION 8: GEOGRAPHY & SERVICE AREA
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">8</div>
+                <div>
+                    <div class="section-title-text">Service Area &amp; Geography</div>
+                    <div class="section-subtitle">Used in local SEO copy and county references throughout the site</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="field-group">
+                    <label class="field-label" for="primary_city">Primary Metro Area / City <span class="req">*</span></label>
+                    <div class="field-hint">The main city your firm is known for. Appears in hero region labeling.</div>
+                    <input type="text" id="primary_city" name="primary_metro" placeholder="Tampa Bay Area" required>
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="counties">Counties Served <span class="req">*</span></label>
+                    <div class="field-hint">Comma-separated. Used in case result captions and footer. Example: Hillsborough, Pinellas, Pasco, Polk</div>
+                    <input type="text" id="counties" name="counties_served" placeholder="Hillsborough, Pinellas, Pasco, Polk, Manatee" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================
+             SECTION 9: PHOTOS
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">9</div>
+                <div>
+                    <div class="section-title-text">Photos</div>
+                    <div class="section-subtitle">Send all photos to tyler@brechtland.com after submitting this form</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="photo-card">
+                    <h4>&#128248; Photos to Send</h4>
+                    <ul class="photo-list">
+                        <li><strong>Attorney headshots</strong> &mdash; one per attorney, high-res, professional background preferred (1:1 or portrait crop)</li>
+                        <li><strong>Team photo</strong> &mdash; all attorneys together in your office or professional setting (landscape, 16:9 ideal)</li>
+                        <li><strong>Office interior</strong> &mdash; conference room or lobby that shows your firm&rsquo;s environment (landscape)</li>
+                        <li><strong>Courthouse or exterior</strong> &mdash; optional; a courthouse photo adds credibility (landscape)</li>
+                        <li><strong>Any custom background images</strong> &mdash; anything you want on the site</li>
+                    </ul>
+                </div>
+                <div class="field-group" style="margin-top:20px">
+                    <label class="field-label" for="photo_notes">Photo Notes <span class="opt">(optional)</span></label>
+                    <div class="field-hint">Anything specific about your photos, or if you don&rsquo;t have certain shots yet.</div>
+                    <textarea id="photo_notes" name="photo_notes" rows="3" placeholder="e.g. We only have 2 attorney headshots right now. Team photo is coming next week. We have an office interior we love."></textarea>
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="existing_photos">Google Drive / Dropbox Link to Photos <span class="opt">(optional)</span></label>
+                    <div class="field-hint">If you already have photos ready, paste a shared link here.</div>
+                    <input type="url" id="existing_photos" name="photo_link" placeholder="https://drive.google.com/...">
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================
+             SECTION 10: ADDITIONAL NOTES
+        ============================ -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-num">10</div>
+                <div>
+                    <div class="section-title-text">Anything Else</div>
+                    <div class="section-subtitle">Other firms you like, styles you want, things you don&rsquo;t want, anything</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="field-group">
+                    <label class="field-label" for="competitor_sites">Competitor Sites You Like <span class="opt">(optional)</span></label>
+                    <div class="field-hint">Paste URLs of 1&ndash;3 competitor or reference sites whose look or feel you like. I&rsquo;ll use them as reference &mdash; not to copy.</div>
+                    <textarea id="competitor_sites" name="competitor_sites" rows="2" placeholder="https://smithlawfl.com&#10;https://tampapersonalinjury.com"></textarea>
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="color_notes">Color Preferences <span class="opt">(optional)</span></label>
+                    <div class="field-hint">The default template uses navy &amp; gold. If you have existing brand colors, list them here. Otherwise leave blank.</div>
+                    <input type="text" id="color_notes" name="color_preference" placeholder="e.g. Keep navy/gold — or — our brand is #003366 and #C49A2A">
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="do_not_want">Things You DON&rsquo;T Want <span class="opt">(optional)</span></label>
+                    <div class="field-hint">Any sections, styles, phrases, or approaches you want removed or avoided.</div>
+                    <textarea id="do_not_want" name="do_not_want" rows="2" placeholder="e.g. No stock photos of courtrooms, no 'free consultation' language, remove the office interior section..."></textarea>
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="additional_notes">Anything Else</label>
+                    <textarea id="additional_notes" name="additional_notes" rows="4" placeholder="Any other information, questions, or context that will help me build you the best possible site."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="submit-section" id="submitSection">
+            <p>Double-check your answers, then hit submit. You&rsquo;ll receive a confirmation at your email address, and I&rsquo;ll follow up within 24 hours to confirm receipt and timeline.</p>
+            <button type="submit" class="submit-btn">Submit My Website Intake &rarr;</button>
+            <p class="submit-note">After submitting: send photos to <a href="mailto:tyler@brechtland.com" style="color:var(--blue)">tyler@brechtland.com</a> &nbsp;&middot;&nbsp; Questions? Call or text <a href="tel:9728336364" style="color:var(--blue)">(972) 833-6364</a></p>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div class="success-state" id="successState">
+            <div class="success-icon">&#9989;</div>
+            <h2>Intake Received.</h2>
+            <p>Your information is on its way to tyler@brechtland.com. You&rsquo;ll hear back within 24 hours to confirm your timeline.</p>
+            <p style="margin-top:14px; font-weight:500; color:var(--dark)">Next step: send your photos to <a href="mailto:tyler@brechtland.com" style="color:var(--blue)">tyler@brechtland.com</a></p>
+        </div>
+
+    </form>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    Brechtland LLC &nbsp;&middot;&nbsp; <a href="https://brechtland.com">brechtland.com</a> &nbsp;&middot;&nbsp; Website Design for Local Businesses
+</footer>
+
+<script>
+    const form = document.getElementById('intakeForm');
+    const submitSection = document.getElementById('submitSection');
+    const successState = document.getElementById('successState');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const btn = form.querySelector('.submit-btn');
+        btn.textContent = 'Submitting...';
+        btn.disabled = true;
+
+        try {
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                submitSection.style.display = 'none';
+                successState.style.display = 'block';
+                window.scrollTo({ top: successState.offsetTop - 80, behavior: 'smooth' });
+            } else {
+                btn.textContent = 'Submit failed — try again';
+                btn.disabled = false;
+                alert('Something went wrong. Please email your answers directly to tyler@brechtland.com');
+            }
+        } catch (err) {
+            btn.textContent = 'Submit failed — try again';
+            btn.disabled = false;
+            alert('Network error. Please email your answers to tyler@brechtland.com');
+        }
+    });
+</script>
+
+</body>
+</html>
