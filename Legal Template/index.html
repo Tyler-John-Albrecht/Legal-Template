@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harrison & Associates | Personal Injury Attorneys | Tampa, Florida</title>
+    <meta name="description" content="Florida personal injury attorneys fighting for maximum compensation. Car accidents, workplace injuries, slip & fall. No fee unless we win. Call 24/7.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================
+           VARIABLES & RESET
+        ============================ */
+        :root {
+            --navy:       #0B1426;
+            --navy-mid:   #152236;
+            --navy-light: #1E3354;
+            --gold:       #C49A2A;
+            --gold-light: #E8D5A3;
+            --gold-dark:  #8A6915;
+            --offwhite:   #F5F0E8;
+            --white:      #FFFFFF;
+            --text:       #1A1A2A;
+            --text-mid:   #4B5563;
+            --border:     rgba(196,154,42,0.22);
+            --shadow:     0 20px 60px rgba(0,0,0,0.12);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        a { text-decoration: none; color: inherit; transition: color .2s; }
+
+        /* UTILITY */
+        .eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            color: var(--gold-dark);
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 48px);
+            color: var(--navy);
+            line-height: 1.12;
+            margin-bottom: 16px;
+        }
+        .section-sub {
+            font-size: 17px;
+            font-weight: 300;
+            color: var(--text-mid);
+            line-height: 1.75;
+            max-width: 560px;
+        }
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: var(--navy);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 16px 32px;
+            cursor: pointer;
+            letter-spacing: .3px;
+            transition: background .2s, transform .2s;
+            border: none;
+        }
+        .btn-gold:hover { background: #D9AD38; transform: translateY(-1px); }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 16px 32px;
+            border: 1px solid rgba(255,255,255,.4);
+            cursor: pointer;
+            transition: all .2s;
+        }
+        .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,.07); }
+
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ============================
+           EMERGENCY BAR
+        ============================ */
+        .emergency-bar {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 13.5px;
+            font-weight: 500;
+            letter-spacing: .4px;
+        }
+        .emergency-bar a { font-weight: 800; text-decoration: underline; color: var(--navy); }
+
+        /* ============================
+           NAVIGATION
+        ============================ */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: var(--navy);
+            border-bottom: 1px solid rgba(255,255,255,.05);
+            transition: box-shadow .2s;
+        }
+        nav {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brand { display: flex; flex-direction: column; gap: 2px; }
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            line-height: 1.1;
+        }
+        .brand-tag {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a { color: rgba(255,255,255,.7); font-size: 14px; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-phone { color: var(--gold) !important; font-weight: 600 !important; font-size: 15px !important; }
+        .nav-cta {
+            background: var(--gold);
+            color: var(--navy) !important;
+            font-weight: 700 !important;
+            padding: 10px 22px;
+            font-size: 13px !important;
+        }
+        .nav-cta:hover { background: #D9AD38; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); transition: .3s; }
+
+        /* ============================
+           HERO
+        ============================ */
+        .hero {
+            position: relative;
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img { object-position: center 35%; }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(105deg, rgba(11,20,38,.95) 0%, rgba(11,20,38,.8) 55%, rgba(11,20,38,.35) 100%);
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            align-items: center;
+            gap: 60px;
+            width: 100%;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 7px 14px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+        .hero-badge::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+        .hero h1 {
+            font-size: clamp(36px, 5.5vw, 64px);
+            color: var(--white);
+            font-weight: 900;
+            line-height: 1.08;
+            margin-bottom: 20px;
+            letter-spacing: -.5px;
+        }
+        .hero h1 em { color: var(--gold); font-style: normal; }
+        .hero-desc {
+            color: rgba(255,255,255,.7);
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+        .hero-promise {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold-light);
+            font-size: 13.5px;
+            font-weight: 500;
+            padding: 13px 0;
+            border-top: 1px solid rgba(196,154,42,.3);
+            border-bottom: 1px solid rgba(196,154,42,.3);
+            margin-bottom: 36px;
+        }
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        /* HERO SIDE CARD */
+        .hero-card {
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-card img { height: 420px; object-position: center top; }
+        .hero-card-cap {
+            background: rgba(11,20,38,.9);
+            padding: 14px 18px;
+            border-top: 2px solid var(--gold);
+            text-align: center;
+        }
+        .hero-card-cap strong { color: var(--gold); font-weight: 700; font-size: 14px; }
+        .hero-card-cap span { color: rgba(255,255,255,.65); font-size: 12px; display: block; font-weight: 300; margin-top: 2px; }
+
+        /* ============================
+           STATS BAR
+        ============================ */
+        .stats-bar {
+            background: var(--navy-mid);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 44px 40px;
+        }
+        .stats-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 52px repeat(4, 1fr);
+            align-items: center;
+        }
+        .stats-scales {
+            width: 52px;
+            height: 52px;
+            overflow: hidden;
+            opacity: .55;
+            flex-shrink: 0;
+        }
+        .stat {
+            padding: 0 24px;
+            border-right: 1px solid var(--border);
+            text-align: center;
+        }
+        .stat:last-child { border-right: none; }
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .stat-lbl {
+            color: rgba(255,255,255,.5);
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ============================
+           PRACTICE AREAS
+        ============================ */
+        .practice { padding: 96px 0; background: var(--offwhite); }
+        .section-head { margin-bottom: 52px; }
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .pcard {
+            background: var(--white);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform .3s;
+        }
+        .pcard:hover { transform: translateY(-5px); }
+        .pcard-img { height: 230px; overflow: hidden; }
+        .pcard-img img { transition: transform .4s; }
+        .pcard:hover .pcard-img img { transform: scale(1.05); }
+        .pcard-body { padding: 28px 24px 24px; }
+        .pcard-body h3 { font-size: 21px; color: var(--navy); margin-bottom: 10px; }
+        .pcard-body p { color: var(--text-mid); font-size: 14px; line-height: 1.72; font-weight: 300; margin-bottom: 18px; }
+        .pcard-link { font-size: 13px; font-weight: 600; color: var(--gold-dark); letter-spacing: .4px; transition: letter-spacing .2s; }
+        .pcard:hover .pcard-link { letter-spacing: 1px; }
+
+        /* ============================
+           TEAM STRIP (hero-team.jpg)
+        ============================ */
+        .team-strip {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        .team-strip img { object-position: center 20%; }
+        .team-strip-over {
+            position: absolute;
+            inset: 0;
+            background: rgba(11,20,38,.72);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .team-strip-text { text-align: center; color: var(--white); padding: 20px; max-width: 680px; }
+        .team-strip-text h2 { font-size: clamp(26px, 4vw, 50px); margin-bottom: 14px; line-height: 1.15; }
+        .team-strip-text h2 em { color: var(--gold); font-style: normal; }
+        .team-strip-text p { color: rgba(255,255,255,.6); font-size: 17px; font-weight: 300; line-height: 1.7; margin-bottom: 28px; }
+
+        /* ============================
+           WHY CHOOSE US
+        ============================ */
+        .why { padding: 96px 0; background: var(--white); }
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+        .why-img-wrap { position: relative; height: 560px; }
+        .why-img-wrap img { height: 100%; object-position: center top; }
+        .why-badge {
+            position: absolute;
+            bottom: -18px;
+            right: -18px;
+            background: var(--navy);
+            padding: 22px 26px;
+            width: 178px;
+        }
+        .why-badge-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .why-badge-lbl { font-size: 11px; color: rgba(255,255,255,.6); font-weight: 300; margin-top: 4px; }
+        .why-lead {
+            font-size: 17px;
+            font-weight: 300;
+            color: var(--text-mid);
+            line-height: 1.8;
+            padding-left: 16px;
+            border-left: 3px solid var(--gold);
+            margin: 0 0 36px;
+        }
+        .why-points { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+        .why-pt { display: flex; gap: 14px; align-items: flex-start; }
+        .why-icon {
+            width: 38px;
+            height: 38px;
+            background: rgba(196,154,42,.08);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 15px;
+        }
+        .why-pt h4 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+        .why-pt p { font-size: 14px; color: var(--text-mid); line-height: 1.65; font-weight: 300; }
+
+        /* ============================
+           HOW IT WORKS
+        ============================ */
+        .process { padding: 96px 0; background: var(--navy); }
+        .process-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: center;
+            margin-top: 56px;
+        }
+        .process-img { height: 460px; overflow: hidden; position: relative; }
+        .process-img img { height: 100%; }
+        .process-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(11,20,38,.25), transparent);
+        }
+        .process-steps { display: flex; flex-direction: column; gap: 36px; }
+        .step { display: grid; grid-template-columns: 72px 1fr; gap: 20px; align-items: flex-start; }
+        .step-num {
+            width: 72px;
+            height: 72px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+        .step h3 { color: var(--white); font-size: 19px; margin-bottom: 8px; }
+        .step p { color: rgba(255,255,255,.5); font-size: 14px; line-height: 1.72; font-weight: 300; }
+
+        /* ============================
+           MEET THE TEAM
+        ============================ */
+        .team { padding: 96px 0; background: var(--offwhite); }
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .tcard { background: var(--white); overflow: hidden; box-shadow: 0 6px 28px rgba(0,0,0,.07); }
+        .tcard-img { height: 350px; overflow: hidden; }
+        .tcard-img img { object-position: center top; transition: transform .4s; }
+        .tcard:hover .tcard-img img { transform: scale(1.04); }
+        .tcard-body { padding: 24px; border-top: 3px solid var(--gold); }
+        .tcard-name { font-size: 21px; color: var(--navy); margin-bottom: 3px; }
+        .tcard-title { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+        .tcard-bio { font-size: 14px; color: var(--text-mid); line-height: 1.72; font-weight: 300; }
+
+        /* ============================
+           OFFICE SHOWCASE
+        ============================ */
+        .office { height: 460px; position: relative; overflow: hidden; }
+        .office img { object-position: center; }
+        .office-over {
+            position: absolute;
+            inset: 0;
+            background: rgba(11,20,38,.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .office-quote { text-align: center; color: var(--white); max-width: 680px; padding: 40px; }
+        .office-quote blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 34px);
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        .office-quote cite { color: var(--gold); font-style: normal; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; }
+
+        /* ============================
+           CASE RESULTS
+        ============================ */
+        .results { padding: 96px 0; background: var(--white); }
+        .results-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .results-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
+        .rcard {
+            background: var(--navy);
+            padding: 28px 22px;
+            position: relative;
+            overflow: hidden;
+        }
+        .rcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
+        .rcard-span { grid-column: span 2; }
+        .rcard-amount { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 44px); font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+        .rcard-type { color: var(--white); font-size: 15px; font-weight: 500; margin-bottom: 5px; }
+        .rcard-note { color: rgba(255,255,255,.38); font-size: 12px; font-weight: 300; }
+        .results-img-wrap { height: 460px; position: relative; overflow: hidden; }
+        .results-img-wrap img { height: 100%; }
+        .results-img-cap {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11,20,38,.82);
+            padding: 14px 18px;
+            color: rgba(255,255,255,.6);
+            font-size: 12px;
+            font-style: italic;
+            font-weight: 300;
+            border-top: 1px solid var(--gold);
+        }
+
+        /* ============================
+           COURTHOUSE DIVIDER (courthouse-steps.jpg)
+        ============================ */
+        .cts-div {
+            position: relative;
+            height: 340px;
+            overflow: hidden;
+        }
+        .cts-div img { object-position: center 40%; }
+        .cts-over {
+            position: absolute;
+            inset: 0;
+            background: rgba(11,20,38,.65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cts-text { text-align: center; color: var(--white); max-width: 620px; padding: 20px; }
+        .cts-text h2 { font-size: clamp(24px, 4vw, 46px); margin-bottom: 24px; line-height: 1.2; }
+        .cts-text h2 em { color: var(--gold); font-style: normal; }
+
+        /* ============================
+           TESTIMONIALS
+        ============================ */
+        .testimonials { padding: 96px 0; background: var(--offwhite); }
+        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .tcard2 {
+            background: var(--white);
+            padding: 32px 28px;
+            box-shadow: 0 3px 18px rgba(0,0,0,.06);
+            position: relative;
+        }
+        .tcard2-stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; margin-bottom: 18px; }
+        .tcard2-text { font-size: 14.5px; line-height: 1.8; color: var(--text-mid); font-weight: 300; font-style: italic; margin-bottom: 22px; }
+        .tcard2-name { font-weight: 700; color: var(--navy); font-size: 15px; }
+        .tcard2-case { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-dark); margin-top: 3px; }
+        .tcard2-q {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            color: rgba(196,154,42,.06);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* ============================
+           CTA SECTION (cta-bg.jpg)
+        ============================ */
+        .cta-sec {
+            position: relative;
+            padding: 116px 0;
+            overflow: hidden;
+        }
+        .cta-bg { position: absolute; inset: 0; }
+        .cta-bg img { object-position: center; }
+        .cta-over { position: absolute; inset: 0; background: rgba(11,20,38,.88); }
+        .cta-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        .cta-inner .eyebrow { color: var(--gold); }
+        .cta-inner h2 { font-size: clamp(28px, 4.5vw, 54px); color: var(--white); line-height: 1.12; margin-bottom: 20px; }
+        .cta-inner h2 em { color: var(--gold); font-style: normal; }
+        .cta-inner p { color: rgba(255,255,255,.6); font-size: 17px; font-weight: 300; line-height: 1.75; margin-bottom: 44px; }
+        .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px; }
+        .cta-fine { color: rgba(255,255,255,.32); font-size: 12.5px; font-weight: 300; }
+
+        /* ============================
+           FOOTER
+        ============================ */
+        footer { background: #060D1A; color: rgba(255,255,255,.45); }
+        .footer-top {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 60px 40px 48px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 56px;
+        }
+        .f-brand-name { font-family: 'Playfair Display', serif; color: var(--white); font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+        .f-brand-tag { color: var(--gold); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 18px; display: block; }
+        .f-brand p { font-size: 13.5px; line-height: 1.72; font-weight: 300; max-width: 260px; }
+        .f-phone { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 22px; font-weight: 700; margin-top: 18px; display: block; }
+        .f-img-accent { width: 100%; height: 90px; overflow: hidden; opacity: .35; margin-top: 20px; }
+        .f-img-accent img { height: 100%; object-position: center; }
+        .f-col h4 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 15px; margin-bottom: 18px; }
+        .f-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+        .f-col a { font-size: 13px; font-weight: 300; }
+        .f-col a:hover { color: var(--gold); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.07);
+            padding: 20px 40px;
+            max-width: 1160px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        .disclaimer {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 14px 40px 28px;
+            font-size: 10.5px;
+            color: rgba(255,255,255,.18);
+            line-height: 1.65;
+            border-top: 1px solid rgba(255,255,255,.04);
+        }
+
+        /* ============================
+           RESPONSIVE
+        ============================ */
+        @media (max-width: 960px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-card { display: none; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .stats-scales { display: none; }
+            .stat:nth-child(3) { border-right: none; }
+            .practice-grid,
+            .team-grid,
+            .testi-grid { grid-template-columns: 1fr; }
+            .why-grid,
+            .process-layout,
+            .results-layout { grid-template-columns: 1fr; gap: 40px; }
+            .why-img-wrap,
+            .process-img,
+            .results-img-wrap { height: 300px; }
+            .why-badge { right: 0; bottom: -12px; }
+            .results-cards { grid-template-columns: 1fr; }
+            .rcard-span { grid-column: span 1; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+            .container { padding: 0 20px; }
+            nav { padding: 14px 20px; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 20px 24px;
+                gap: 16px;
+                border-top: 1px solid rgba(255,255,255,.07);
+                z-index: 998;
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+            .nav-cta { display: none; }
+        }
+        @media (max-width: 600px) {
+            .footer-top { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .stat:nth-child(2) { border-right: none; }
+            .hero h1 { font-size: 34px; }
+            footer .footer-top { padding: 40px 20px; }
+            .footer-bottom { padding: 16px 20px; }
+            .disclaimer { padding: 14px 20px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- EMERGENCY BAR -->
+<div class="emergency-bar">
+    Injured? <strong>Don't wait</strong> — call
+    <a href="tel:5555550123">(555) 555-0123</a>
+    for your free case review. Available 24/7.
+</div>
+
+<!-- NAVIGATION -->
+<header id="site-header">
+    <nav>
+        <a href="#" class="brand">
+            <span class="brand-name">Harrison &amp; Associates</span>
+            <span class="brand-tag">Personal Injury Attorneys</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#practice">Practice Areas</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="tel:5555550123" class="nav-phone">(555) 555-0123</a></li>
+            <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+</header>
+
+<!-- ==============================
+     HERO
+============================== -->
+<section class="hero">
+    <div class="hero-bg">
+        <img src="hero-bg-courthouse.jpg" alt="United States Courthouse">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+        <div class="reveal">
+            <div class="hero-badge">Florida Personal Injury Law &mdash; Since 1999</div>
+            <h1>The Insurance Company<br>Has a Lawyer.<br><em>Shouldn&rsquo;t You?</em></h1>
+            <p class="hero-desc">
+                Insurance adjusters are trained to minimize your payout within 48 hours of an accident. Our attorneys have spent 25 years fighting back &mdash; and we don&rsquo;t collect a dollar unless you win.
+            </p>
+            <div class="hero-promise">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="flex-shrink:0">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                No Fee Unless We Win &nbsp;&middot;&nbsp; Zero Upfront Cost &nbsp;&middot;&nbsp; Free 24/7 Consultation
+            </div>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn-gold" style="font-size:16px;padding:18px 36px;">Get My Free Case Review &rarr;</a>
+                <a href="tel:5555550123" class="btn-ghost" style="font-size:16px;padding:18px 36px;">
+                    <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    Call (555) 555-0123
+                </a>
+            </div>
+        </div>
+        <!-- attorney-lead.jpg featured in hero -->
+        <div class="hero-card reveal" style="transition-delay:.15s">
+            <img src="attorney-lead.jpg" alt="James Harrison — Founding Partner">
+            <div class="hero-card-cap">
+                <strong>James Harrison</strong>
+                <span>Founding Partner &middot; 25 Years</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     STATS BAR  (scales-justice.jpg)
+============================== -->
+<section class="stats-bar">
+    <div class="stats-inner">
+        <div class="stats-scales">
+            <img src="scales-justice.jpg" alt="">
+        </div>
+        <div class="stat reveal">
+            <div class="stat-num">25+</div>
+            <div class="stat-lbl">Years Experience</div>
+        </div>
+        <div class="stat reveal" style="transition-delay:.1s">
+            <div class="stat-num">$50M+</div>
+            <div class="stat-lbl">Recovered for Clients</div>
+        </div>
+        <div class="stat reveal" style="transition-delay:.2s">
+            <div class="stat-num">2,400+</div>
+            <div class="stat-lbl">Cases Won</div>
+        </div>
+        <div class="stat reveal" style="transition-delay:.3s">
+            <div class="stat-num">$0</div>
+            <div class="stat-lbl">Fee Unless You Win</div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     PRACTICE AREAS
+============================== -->
+<section class="practice" id="practice">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">What We Handle</span>
+            <h2 class="section-title">We Fight for People<br>Insurance Companies Try to Shortchange</h2>
+            <p class="section-sub">Injured due to someone else&rsquo;s negligence? You deserve full compensation &mdash; not the lowball figure an adjuster slides across the table at 8 AM.</p>
+        </div>
+        <div class="practice-grid">
+            <div class="pcard reveal">
+                <div class="pcard-img">
+                    <img src="practice-car-accident.jpg" alt="Car and Truck Accident Attorney">
+                </div>
+                <div class="pcard-body">
+                    <h3>Car &amp; Truck Accidents</h3>
+                    <p>Rear-ends, T-bones, commercial truck crashes. Insurers move fast to close your case cheap. We move faster to make sure you're made whole for every dollar you've lost.</p>
+                    <span class="pcard-link">Learn More &rarr;</span>
+                </div>
+            </div>
+            <div class="pcard reveal" style="transition-delay:.12s">
+                <div class="pcard-img">
+                    <img src="practice-workplace-injury.jpg" alt="Workplace Injury Attorney">
+                </div>
+                <div class="pcard-body">
+                    <h3>Workplace Injuries</h3>
+                    <p>Construction accidents, equipment failures, unsafe job sites. You went to work to earn a living &mdash; not to get hurt. We fight for every dollar the law entitles you to.</p>
+                    <span class="pcard-link">Learn More &rarr;</span>
+                </div>
+            </div>
+            <div class="pcard reveal" style="transition-delay:.24s">
+                <div class="pcard-img">
+                    <img src="practice-slip-fall.jpg" alt="Slip and Fall Attorney">
+                </div>
+                <div class="pcard-body">
+                    <h3>Slip &amp; Fall Accidents</h3>
+                    <p>Property owners have a legal duty to keep you safe. When they fail and you get hurt, we hold them accountable and recover everything you&rsquo;re legally owed.</p>
+                    <span class="pcard-link">Learn More &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     TEAM STRIP  (hero-team.jpg)
+============================== -->
+<section class="team-strip">
+    <img src="hero-team.jpg" alt="Harrison &amp; Associates Legal Team">
+    <div class="team-strip-over">
+        <div class="team-strip-text reveal">
+            <h2>Three Attorneys. One Goal.<br><em>Your Maximum Recovery.</em></h2>
+            <p>Combined 50+ years of personal injury litigation. We&rsquo;ve taken on Florida&rsquo;s largest insurance companies &mdash; and won every time it mattered.</p>
+            <a href="#team" class="btn-gold">Meet the Team &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     WHY CHOOSE US  (attorney-desk.jpg)
+============================== -->
+<section class="why">
+    <div class="container">
+        <div class="why-grid">
+            <div class="why-img-wrap reveal">
+                <img src="attorney-desk.jpg" alt="James Harrison reviewing a case file">
+                <div class="why-badge">
+                    <div class="why-badge-num">98%</div>
+                    <div class="why-badge-lbl">Client satisfaction rate</div>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay:.15s">
+                <span class="eyebrow">Why Harrison &amp; Associates</span>
+                <h2 class="section-title">We Don&rsquo;t Settle<br>for Less Than<br>You Deserve</h2>
+                <p class="why-lead">
+                    The first offer from an insurance company is almost never the right one. We&rsquo;ve spent 25 years making sure our clients know the difference &mdash; and never leave a dollar on the table.
+                </p>
+                <ul class="why-points">
+                    <li class="why-pt">
+                        <div class="why-icon">&#9878;</div>
+                        <div>
+                            <h4>No Fee Unless We Win</h4>
+                            <p>Zero upfront cost. No hourly rates, no retainers. If we don&rsquo;t win, you owe us nothing &mdash; period.</p>
+                        </div>
+                    </li>
+                    <li class="why-pt">
+                        <div class="why-icon">&#128222;</div>
+                        <div>
+                            <h4>We Handle the Insurance Company</h4>
+                            <p>Stop taking their calls. We manage all communications so you can focus entirely on recovering.</p>
+                        </div>
+                    </li>
+                    <li class="why-pt">
+                        <div class="why-icon">&#9201;</div>
+                        <div>
+                            <h4>Florida&rsquo;s Statute of Limitations</h4>
+                            <p>Florida law limits the time you have to file. Evidence disappears. Every day you wait costs you.</p>
+                        </div>
+                    </li>
+                    <li class="why-pt">
+                        <div class="why-icon">&#127942;</div>
+                        <div>
+                            <h4>Trial-Ready Preparation</h4>
+                            <p>We build every case as if it goes to trial. Insurance companies know this &mdash; and settle for more because of it.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     HOW IT WORKS  (consultation.jpg)
+============================== -->
+<section class="process">
+    <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:0">
+            <span class="eyebrow" style="color:var(--gold)">The Process</span>
+            <h2 class="section-title" style="color:var(--white); text-align:center">Three Steps. No Guesswork.<br>No Upfront Cost.</h2>
+            <p class="section-sub" style="color:rgba(255,255,255,.5); margin:0 auto">From your first call to your settlement check, we handle everything. You focus on healing.</p>
+        </div>
+        <div class="process-layout">
+            <div class="process-img reveal">
+                <img src="consultation.jpg" alt="Attorney client consultation">
+            </div>
+            <div class="process-steps">
+                <div class="step reveal" style="transition-delay:.1s">
+                    <div class="step-num">01</div>
+                    <div>
+                        <h3>Free Consultation</h3>
+                        <p>Tell us what happened. We review your case at no cost, give you an honest assessment, and tell you exactly what we can recover &mdash; zero obligation.</p>
+                    </div>
+                </div>
+                <div class="step reveal" style="transition-delay:.2s">
+                    <div class="step-num">02</div>
+                    <div>
+                        <h3>We Take Over Everything</h3>
+                        <p>We handle the insurance company, gather evidence, bring in experts if needed, and fight for maximum compensation. You don&rsquo;t lift a finger.</p>
+                    </div>
+                </div>
+                <div class="step reveal" style="transition-delay:.3s">
+                    <div class="step-num">03</div>
+                    <div>
+                        <h3>You Get Paid</h3>
+                        <p>We collect nothing unless we win. When we do, you receive your full settlement. No surprises. No hidden fees. No exceptions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     MEET THE TEAM
+============================== -->
+<section class="team" id="team">
+    <div class="container">
+        <div class="section-head reveal" style="text-align:center; margin-bottom:48px">
+            <span class="eyebrow">Our Attorneys</span>
+            <h2 class="section-title" style="text-align:center">Experienced. Aggressive.<br>Completely on Your Side.</h2>
+            <p class="section-sub" style="margin:0 auto">50+ combined years fighting for Florida personal injury victims.</p>
+        </div>
+        <div class="team-grid">
+            <div class="tcard reveal">
+                <div class="tcard-img">
+                    <img src="attorney-lead.jpg" alt="James Harrison">
+                </div>
+                <div class="tcard-body">
+                    <h3 class="tcard-name">James Harrison</h3>
+                    <div class="tcard-title">Founding Partner</div>
+                    <p class="tcard-bio">25+ years in personal injury litigation. James has taken on Florida&rsquo;s largest insurers and won. He personally oversees every high-value case from intake to verdict &mdash; and doesn&rsquo;t back down.</p>
+                </div>
+            </div>
+            <div class="tcard reveal" style="transition-delay:.12s">
+                <div class="tcard-img">
+                    <img src="attorney-female.jpg" alt="Maria Reyes">
+                </div>
+                <div class="tcard-body">
+                    <h3 class="tcard-name">Maria Reyes</h3>
+                    <div class="tcard-title">Senior Associate</div>
+                    <p class="tcard-bio">Specializing in catastrophic injuries and wrongful death, Maria&rsquo;s record speaks for itself &mdash; multi-million dollar verdicts and zero tolerance for insurers who undervalue her clients.</p>
+                </div>
+            </div>
+            <div class="tcard reveal" style="transition-delay:.24s">
+                <div class="tcard-img">
+                    <img src="attorney-male-2.jpg" alt="Marcus Coleman">
+                </div>
+                <div class="tcard-body">
+                    <h3 class="tcard-name">Marcus Coleman</h3>
+                    <div class="tcard-title">Associate Attorney</div>
+                    <p class="tcard-bio">Marcus focuses on auto accidents and workplace injury claims. His meticulous preparation and aggressive negotiating style consistently delivers above-average settlements for his clients.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     OFFICE SHOWCASE  (office-interior.jpg)
+============================== -->
+<section class="office">
+    <img src="office-interior.jpg" alt="Harrison &amp; Associates Conference Room">
+    <div class="office-over">
+        <div class="office-quote reveal">
+            <blockquote>&ldquo;Every client deserves to walk in and know &mdash; we take this as seriously as they do.&rdquo;</blockquote>
+            <cite>&mdash; James Harrison, Founding Partner</cite>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     CASE RESULTS  (settlement-handshake.jpg)
+============================== -->
+<section class="results" id="results">
+    <div class="container">
+        <div class="results-layout">
+            <div class="reveal">
+                <span class="eyebrow">Case Results</span>
+                <h2 class="section-title">We Don&rsquo;t Just Win.<br>We Win Big.</h2>
+                <p class="section-sub">Past results don&rsquo;t guarantee future outcomes &mdash; but they show what happens when experience meets preparation.</p>
+                <div class="results-cards">
+                    <div class="rcard rcard-span">
+                        <div class="rcard-amount">$1,850,000</div>
+                        <div class="rcard-type">Auto Accident &mdash; Spinal Injury</div>
+                        <div class="rcard-note">T-bone collision &middot; Hillsborough County</div>
+                    </div>
+                    <div class="rcard">
+                        <div class="rcard-amount">$975,000</div>
+                        <div class="rcard-type">Workplace Injury</div>
+                        <div class="rcard-note">Construction fall &middot; Pinellas County</div>
+                    </div>
+                    <div class="rcard">
+                        <div class="rcard-amount">$650,000</div>
+                        <div class="rcard-type">Slip &amp; Fall</div>
+                        <div class="rcard-note">Commercial premises &middot; Pasco County</div>
+                    </div>
+                </div>
+            </div>
+            <div class="results-img-wrap reveal" style="transition-delay:.15s">
+                <img src="settlement-handshake.jpg" alt="Successful settlement">
+                <div class="results-img-cap">
+                    Every settlement is the result of preparation, strategy, and refusing to accept less than our clients deserve.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     COURTHOUSE DIVIDER  (courthouse-steps.jpg)
+============================== -->
+<section class="cts-div">
+    <img src="courthouse-steps.jpg" alt="Courts of Justice">
+    <div class="cts-over">
+        <div class="cts-text reveal">
+            <h2>Justice Doesn&rsquo;t Happen on Its Own.<br><em>We Make It Happen.</em></h2>
+            <a href="#contact" class="btn-gold" style="font-size:15px;padding:16px 34px;">Get Free Consultation &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     TESTIMONIALS
+============================== -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-head reveal" style="text-align:center; margin-bottom:48px">
+            <span class="eyebrow">Client Testimonials</span>
+            <h2 class="section-title" style="text-align:center">What Our Clients<br>Actually Say</h2>
+        </div>
+        <div class="testi-grid">
+            <div class="tcard2 reveal">
+                <div class="tcard2-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="tcard2-text">&ldquo;After my accident, the insurance company offered me $12,000. James Harrison recovered over $400,000 for me. I didn&rsquo;t pay a single dollar upfront. I can&rsquo;t recommend this firm enough.&rdquo;</p>
+                <div class="tcard2-name">Robert T.</div>
+                <div class="tcard2-case">Auto Accident &middot; Tampa, FL</div>
+                <div class="tcard2-q">&ldquo;</div>
+            </div>
+            <div class="tcard2 reveal" style="transition-delay:.12s">
+                <div class="tcard2-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="tcard2-text">&ldquo;I was hurt at a job site and didn&rsquo;t know my rights. Maria took my call on a Saturday, explained everything, and had a case filed by Monday. Settled for more than I ever imagined.&rdquo;</p>
+                <div class="tcard2-name">David M.</div>
+                <div class="tcard2-case">Workplace Injury &middot; Clearwater, FL</div>
+                <div class="tcard2-q">&ldquo;</div>
+            </div>
+            <div class="tcard2 reveal" style="transition-delay:.24s">
+                <div class="tcard2-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="tcard2-text">&ldquo;They treated me like family from the first call. I never had to speak to the insurance company once. The settlement covered my medical bills and then some. Life changing.&rdquo;</p>
+                <div class="tcard2-name">Sandra L.</div>
+                <div class="tcard2-case">Slip &amp; Fall &middot; New Port Richey, FL</div>
+                <div class="tcard2-q">&ldquo;</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================
+     CTA SECTION  (cta-bg.jpg)
+============================== -->
+<section class="cta-sec" id="contact">
+    <div class="cta-bg">
+        <img src="cta-bg.jpg" alt="">
+    </div>
+    <div class="cta-over"></div>
+    <div class="cta-inner reveal">
+        <span class="eyebrow">Time Is Critical</span>
+        <h2>Florida Law Limits Your<br>Time to File. <em>Act Today.</em></h2>
+        <p>Every day you wait, evidence disappears and deadlines close in. Your consultation is completely free. You have nothing to lose &mdash; and potentially hundreds of thousands to recover.</p>
+        <div class="cta-btns">
+            <a href="#" class="btn-gold" style="font-size:17px;padding:20px 44px;">Get My Free Case Review &rarr;</a>
+            <a href="tel:5555550123" class="btn-ghost" style="font-size:17px;padding:20px 44px;">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                Call (555) 555-0123
+            </a>
+        </div>
+        <p class="cta-fine">Free consultation &nbsp;&middot;&nbsp; No obligation &nbsp;&middot;&nbsp; No fee unless we win</p>
+    </div>
+</section>
+
+<!-- ==============================
+     FOOTER  (desk-flatlay.jpg accent)
+============================== -->
+<footer>
+    <div class="footer-top">
+        <div class="f-brand">
+            <div class="f-brand-name">Harrison &amp; Associates</div>
+            <span class="f-brand-tag">Personal Injury Attorneys</span>
+            <p>Fighting for Florida injury victims since 1999. No fee unless we win. We answer when you call &mdash; 24 hours a day.</p>
+            <span class="f-phone">(555) 555-0123</span>
+            <div class="f-img-accent">
+                <img src="desk-flatlay.jpg" alt="Law office">
+            </div>
+        </div>
+        <div class="f-col">
+            <h4>Practice Areas</h4>
+            <ul>
+                <li><a href="#">Car Accidents</a></li>
+                <li><a href="#">Truck Accidents</a></li>
+                <li><a href="#">Workplace Injuries</a></li>
+                <li><a href="#">Slip &amp; Fall</a></li>
+                <li><a href="#">Wrongful Death</a></li>
+                <li><a href="#">Motorcycle Accidents</a></li>
+            </ul>
+        </div>
+        <div class="f-col">
+            <h4>Our Firm</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Meet the Team</a></li>
+                <li><a href="#">Case Results</a></li>
+                <li><a href="#">Client Reviews</a></li>
+                <li><a href="#">Blog &amp; Resources</a></li>
+            </ul>
+        </div>
+        <div class="f-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="#contact">Free Consultation</a></li>
+                <li><a href="#">123 Legal Drive, Suite 400</a></li>
+                <li><a href="#">Tampa, FL 33601</a></li>
+                <li><a href="mailto:info@harrisonlaw.com">info@harrisonlaw.com</a></li>
+                <li><a href="tel:5555550123">24/7 Emergency Line</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2025 Harrison &amp; Associates. All Rights Reserved.</span>
+        <span>Privacy Policy &nbsp;&middot;&nbsp; Attorney Advertising &nbsp;&middot;&nbsp; Sitemap</span>
+    </div>
+    <div class="disclaimer">
+        Attorney Advertising. This website is for informational purposes only and does not constitute legal advice. Past results do not guarantee future outcomes. Results may vary depending on the specific facts, circumstances, and applicable law. The information provided on this website does not create an attorney-client relationship. Harrison &amp; Associates is licensed to practice law in the State of Florida. If you have been injured and need legal advice, consult a qualified attorney.
+    </div>
+</footer>
+
+<script>
+    // --- MOBILE NAV ---
+    document.getElementById('hamburger').addEventListener('click', function () {
+        document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // --- STICKY NAV SHADOW ---
+    window.addEventListener('scroll', function () {
+        document.getElementById('site-header').style.boxShadow =
+            window.scrollY > 10 ? '0 2px 24px rgba(0,0,0,0.38)' : 'none';
+    });
+
+    // --- SCROLL REVEAL ---
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
